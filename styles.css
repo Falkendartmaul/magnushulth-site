@@ -150,7 +150,7 @@ a {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  padding: clamp(4rem, 8vw, 6rem) var(--layout-pad-tight) clamp(2rem, 5vw, 3rem);
+  padding: clamp(0.5rem, 2vw, 1.5rem) var(--layout-pad-tight) clamp(2rem, 5vw, 3rem);
   overflow: hidden;
 }
 
@@ -158,7 +158,7 @@ a {
    Sidluft med padding-inline; cqw mäts efter inre bredden → text kan inte spilla. */
 .hero__background {
   position: absolute;
-  inset: clamp(1rem, 5vw, 3rem) 0 auto 0;
+  inset: clamp(0.2rem, 1vw, 0.8rem) 0 auto 0;
   /* top responsiv, left/right 0, bottom auto */
   display: grid;
   place-items: center;
@@ -178,7 +178,8 @@ a {
 .hero__bg-text {
   font-family: var(--display-font);
   text-transform: uppercase;
-  color: rgba(16, 16, 16, 0.95);
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(16, 16, 16, 0.32);
   line-height: 0.92;
   white-space: nowrap;
   letter-spacing: 0.01em;
@@ -186,7 +187,7 @@ a {
   max-width: 100%;
   text-align: center;
   margin: 0 auto;
-  margin-top: 50px;
+  margin-top: 60px;
   /* Fallback för browsers utan cqw */
   font-size: clamp(2rem, 18vw, 24rem);
 }
@@ -199,12 +200,12 @@ a {
 
 .hero__card {
   position: relative;
-  max-width: clamp(380px, 58vw, 820px);
+  max-width: clamp(500px, 75vw, 1080px);
   border-radius: clamp(1.75rem, 4vw, 3.5rem);
   overflow: hidden;
   box-shadow: 0 14px 28px rgba(16, 16, 16, 0.28);
   background: #f8f1e5;
-  margin-top: 270px;
+  margin-top: 220px;
   z-index: 1;
 }
 
@@ -221,6 +222,12 @@ a {
   padding: clamp(2.5rem, 8vw, 5rem) var(--layout-pad) clamp(0.25rem, 1vw, 0.5rem) var(--layout-pad);
   max-width: var(--layout-max);
   margin: 0 auto;
+  opacity: 0;
+  transition: opacity 0.6s ease-in-out;
+}
+
+.intro.visible {
+  opacity: 1;
 }
 
 
@@ -324,12 +331,12 @@ a {
   gap: clamp(1rem, 2.5vw, 1.6rem);
 }
 
-/* Hide items after 4th (2 rows × 2 columns = 4 items) */
-.resume__list--columns li:nth-child(n + 5) {
+/* Hide items after 6th (3 rows × 2 columns = 6 items) */
+.resume__list--columns li:nth-child(n + 7) {
   display: none;
 }
 
-.resume__list--columns.is-expanded li:nth-child(n + 5) {
+.resume__list--columns.is-expanded li:nth-child(n + 7) {
   display: grid;
 }
 
@@ -385,12 +392,12 @@ a {
     grid-template-columns: 1fr;
   }
 
-  /* On mobile, hide after 2nd (2 rows × 1 column = 2 items) */
-  .resume__list--columns li:nth-child(n + 3) {
+  /* On mobile, hide after 3rd (3 rows × 1 column = 3 items) */
+  .resume__list--columns li:nth-child(n + 4) {
     display: none;
   }
 
-  .resume__list--columns.is-expanded li:nth-child(n + 3) {
+  .resume__list--columns.is-expanded li:nth-child(n + 4) {
     display: grid;
   }
 }
@@ -1125,11 +1132,11 @@ body.is-lightbox-open {
 /* Tablet & små laptops */
 @media (max-width: 960px) {
   .hero {
-    padding: clamp(3rem, 7vw, 4.5rem) var(--layout-pad-tight) clamp(1.75rem, 5vw, 2.5rem);
+    padding: clamp(0.5rem, 2vw, 1.5rem) var(--layout-pad-tight) clamp(1.75rem, 5vw, 2.5rem);
   }
 
   .hero__background {
-    inset: clamp(0.75rem, 4vw, 2rem) 0 auto 0;
+    inset: clamp(0.2rem, 1vw, 0.6rem) 0 auto 0;
     /* behåll full bredd */
     padding-inline: clamp(1rem, 4vw, 2rem);
     /* luft via padding */
@@ -1138,8 +1145,8 @@ body.is-lightbox-open {
   /* OBS: Ingen font-size override här för .hero__bg-text – cqw styr! */
 
   .hero__card {
-    margin-top: 260px;
-    max-width: clamp(360px, 64vw, 760px);
+    margin-top: 210px;
+    max-width: clamp(460px, 78vw, 980px);
   }
 
   .intro {
@@ -1182,11 +1189,11 @@ body.is-lightbox-open {
   }
 
   .hero {
-    padding: 60px 60px;
+    padding: 5px 60px 60px;
   }
 
   .hero__background {
-    inset: clamp(0.5rem, 4vw, 1.1rem) 0 auto 0;
+    inset: 0 0 auto 0;
     /* full bredd, ingen sidoförskjutning */
     padding-inline: clamp(1rem, 5vw, 1.5rem);
     /* luft via padding */
@@ -1195,8 +1202,8 @@ body.is-lightbox-open {
   /* Ingen .hero__bg-text font-size här – cqw/fallback styr */
 
   .hero__card {
-    margin-top: 160px;
-    max-width: clamp(340px, 72vw, 700px);
+    margin-top: 140px;
+    max-width: clamp(440px, 85vw, 880px);
     border-radius: clamp(1.75rem, 9vw, 3rem);
   }
 
