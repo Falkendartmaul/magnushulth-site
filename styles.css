@@ -140,6 +140,21 @@ a {
   transform: scale(0.8);
 }
 
+.nav-logo {
+  font-family: var(--heading-font);
+  font-size: clamp(1.1rem, 2.2vw, 1.4rem);
+  letter-spacing: 0.12em;
+  font-weight: 400;
+  color: var(--black);
+  white-space: nowrap;
+  text-align: center;
+  line-height: 1.1;
+}
+
+.nav-logo-break {
+  display: none;
+}
+
 /* ===========================
    Hero
 =========================== */
@@ -150,7 +165,7 @@ a {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  padding: clamp(0.5rem, 2vw, 1.5rem) var(--layout-pad-tight) clamp(2rem, 5vw, 3rem);
+  padding: clamp(0.25rem, 1vw, 0.75rem) var(--layout-pad-tight) clamp(2rem, 5vw, 3rem);
   overflow: hidden;
 }
 
@@ -200,12 +215,12 @@ a {
 
 .hero__card {
   position: relative;
-  max-width: clamp(500px, 75vw, 1080px);
+  max-width: clamp(700px, 92vw, 1400px);
   border-radius: clamp(1.75rem, 4vw, 3.5rem);
   overflow: hidden;
   box-shadow: 0 14px 28px rgba(16, 16, 16, 0.28);
   background: #f8f1e5;
-  margin-top: 220px;
+  margin-top: 60px;
   z-index: 1;
 }
 
@@ -1132,7 +1147,7 @@ body.is-lightbox-open {
 /* Tablet & små laptops */
 @media (max-width: 960px) {
   .hero {
-    padding: clamp(0.5rem, 2vw, 1.5rem) var(--layout-pad-tight) clamp(1.75rem, 5vw, 2.5rem);
+    padding: clamp(0.25rem, 1vw, 0.75rem) var(--layout-pad-tight) clamp(1.75rem, 5vw, 2.5rem);
   }
 
   .hero__background {
@@ -1145,8 +1160,8 @@ body.is-lightbox-open {
   /* OBS: Ingen font-size override här för .hero__bg-text – cqw styr! */
 
   .hero__card {
-    margin-top: 210px;
-    max-width: clamp(460px, 78vw, 980px);
+    margin-top: 50px;
+    max-width: clamp(600px, 90vw, 1300px);
   }
 
   .intro {
@@ -1184,12 +1199,20 @@ body.is-lightbox-open {
     gap: clamp(0.6rem, 4vw, 1.4rem);
   }
 
+  .nav-logo {
+    display: none;
+  }
+
+  .nav-logo-break {
+    display: block;
+  }
+
   .top-bar {
     padding: 1rem 1.25rem;
   }
 
   .hero {
-    padding: 5px 60px 60px;
+    padding: 0px 20px 60px;
   }
 
   .hero__background {
@@ -1202,8 +1225,8 @@ body.is-lightbox-open {
   /* Ingen .hero__bg-text font-size här – cqw/fallback styr */
 
   .hero__card {
-    margin-top: 140px;
-    max-width: clamp(440px, 85vw, 880px);
+    margin-top: 10px;
+    max-width: 80vw;
     border-radius: clamp(1.75rem, 9vw, 3rem);
   }
 
@@ -1242,7 +1265,7 @@ body.is-lightbox-open {
   }
 
   .hero__card {
-    margin-top: 100px;
+    margin-top: 40px;
   }
 
   .intro {
